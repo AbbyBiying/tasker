@@ -4,9 +4,10 @@ require "monban/constraints/signed_out"
 Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
-  resources :tasks, only: [:new, :create, :delete] do 
+  resources :tasks, only: [:new, :create, :destroy] do 
     member do
       post "completed" => "task_completions#create"
+
     end
   end
   

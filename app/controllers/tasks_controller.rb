@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @task = Task.new
-    # @tasks = current_user.tasks.order( "created_at DESC" )
+    @task = Task.new 
   end
 
   def new
@@ -18,6 +17,13 @@ class TasksController < ApplicationController
     else
       redirect_to :back
     end
+  end
+
+  def destroy
+    task = Task.find(params[:id])
+    task.delete
+
+    redirect_to root_path
   end
 
   private
