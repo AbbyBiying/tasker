@@ -1,0 +1,8 @@
+<h1><%= current_user.name %>'s task</h1>
+
+<ul>
+<% @tasks.each do |task| %> 
+  <li><%= task.content %></li>
+<% end %>
+</ul>
+<%= link_to "New Task", new_tasks_path %>
