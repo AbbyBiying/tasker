@@ -1,2 +1,8 @@
+<li class="<%= "completed" if task.completed? %>">
+  <%= task.content %>
+
+  
+  <%= button_to "Completed", completed_task_path(task), form_class:"completed-task" %>
+</li>
+
  
-  <li><%= task.content %><%= button_to "complete", complete_user_path(task) %></li>

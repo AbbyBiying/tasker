@@ -1,5 +1,13 @@
-<h1><%= current_user.name %>'s task</h1>
+<h1><%= current_user.name %>'s tasks</h1>
+
 <ul>
-<%= render @tasks %>
+  <%= render current_user.tasks.order(created_at: :desc) %>
 </ul>
-<%= link_to "New Task", new_tasks_path %>
+
+<h3>new task for <%= current_user.name %></h3>
+
+<%= form_for @task do |form| %>
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+<%= form.submit %>
+<% end %>

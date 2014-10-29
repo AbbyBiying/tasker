@@ -16,16 +16,6 @@ ActiveRecord::Schema.define(version: 20141029020314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "create_tasks", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.boolean  "completed",  default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "create_tasks", ["user_id"], name: "index_create_tasks_on_user_id", using: :btree
-
   create_table "tasks", force: true do |t|
     t.string   "content"
     t.boolean  "completed",  default: false
