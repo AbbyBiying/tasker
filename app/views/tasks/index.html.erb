@@ -1,6 +1,6 @@
 <h1><%= current_user.name %>'s tasks</h1>
 
-<ul>
+<ul id="task-list">
   <%= render current_user.tasks.order(created_at: :desc) %>
 </ul>
 
@@ -9,5 +9,5 @@
 <%= form_for @task do |form| %>
   <%= form.label :content %>
   <%= form.text_field :content %>
-<%= form.submit %>
+  <%= form.submit %>
 <% end %>

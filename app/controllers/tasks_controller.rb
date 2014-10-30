@@ -3,19 +3,15 @@ class TasksController < ApplicationController
   def index
     @task = Task.new 
   end
-
-  def new
-    @task = Task.new
-
-  end
    
   def create
     @task = Task.new(task_params)
     @task = current_user.tasks.new(task_params)
     if @task.save
-      redirect_to root_path
+      
+      render @task
     else
-      redirect_to :back
+      render partial: "application/form_errors", status: 422, locals: {object: @task}
     end
   end
 
