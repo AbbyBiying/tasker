@@ -18,7 +18,7 @@ $(function(){
 
   var addTaskToList = function(taskHTML){
     var taskList = $("#task-list");
-    taskList.append(taskHTML);
+    taskList.prepend(taskHTML);
   };
 
 
