@@ -1,5 +1,7 @@
 <h1><%= current_user.name %>'s tasks</h1>
 
+<div id="errors"></div>
+
 <ul id="task-list">
   <%= render current_user.tasks.order(created_at: :desc) %>
 </ul>

@@ -11,7 +11,7 @@ $(function(){
     });
 
     taskRequest.done(addTaskToList);
-
+    taskRequest.fail(addTaskError);
     return false;
 
   };
@@ -20,6 +20,15 @@ $(function(){
     var taskList = $("#task-list");
     taskList.append(taskHTML);
   };
+
+
+  var addTaskError = function(response) {
+    
+    var errorMessage = "<p>We could not save your task.</p>"
+    $("#errors").html(response.responseText)
+
+  };
+
 
   newTaskForm.on("submit", createNewTask);
 

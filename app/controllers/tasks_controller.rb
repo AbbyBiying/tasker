@@ -4,8 +4,7 @@ class TasksController < ApplicationController
     @task = Task.new 
   end
    
-  def create
-    @task = Task.new(task_params)
+  def create 
     @task = current_user.tasks.new(task_params)
     if @task.save
       
@@ -17,9 +16,9 @@ class TasksController < ApplicationController
 
   def destroy
     task = Task.find(params[:id])
-    task.delete
-
-    redirect_to root_path
+    task.destroy
+    
+    head 200
   end
 
   private
