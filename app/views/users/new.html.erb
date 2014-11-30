@@ -1,5 +1,4 @@
 <%= form_for @user do |form| %>
-
   <% if @user.errors.any? %>
     <%= pluralize(@user.errors.count, "error") %> prevented your account from being created:
     <ul>
@@ -8,7 +7,6 @@
       <% end %>
     </ul>
   <% end %>
-
 
   <div>
     <%= form.label :name %>
@@ -28,5 +26,4 @@
   <div>
     <%= form.submit "Sign up" %>
   </div>
-
 <% end %>

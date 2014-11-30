@@ -1,13 +1,12 @@
 class TasksController < ApplicationController
-
   def index
-    @task = Task.new 
+    @task = Task.new
   end
-   
-  def create 
+
+  def create
     @task = current_user.tasks.new(task_params)
     if @task.save
-      
+
       render @task
     else
       render partial: "application/form_errors", status: 422, locals: {object: @task}
@@ -17,7 +16,7 @@ class TasksController < ApplicationController
   def destroy
     task = Task.find(params[:id])
     task.destroy
-    
+
     head 200
   end
 
@@ -25,7 +24,5 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:content)
-    
   end
-
 end

@@ -1,8 +1,5 @@
 <li class="<%= "completed" if task.completed? %>">
   <%= task.content %>
-  
   <%= button_to "Completed", completed_task_path(task), form_class:"completed-task" %>
   <%= button_to "Delete", task_path(task), form_class:"delete-task", method: :delete %>
 </li>
-
- 

@@ -5,4 +5,3 @@ class User < ActiveRecord::Base
   has_many :names
   has_many :tasks
 end
-
